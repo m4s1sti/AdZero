@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 240px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 12px;
+      background-color: #f4f4f4;
+      color: #222;
+    }
+
+    .header {
+      font-size: 13px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .control-box {
+      background: #ffffff;
+      border: 1px solid #d1d1d1;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .status-text {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .2s;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .2s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2e7d32;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(18px);
+    }
+
+    .stats-box {
+      background: #ffffff;
+      border: 1px solid #d1d1d1;
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    .stats-count {
+      font-size: 14px;
+      font-weight: bold;
+      color: #111;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">AdZero</div>
+
+  <div class="control-box">
+    <span class="status-text" id="status-label">Protection: ON</span>
+    <label class="switch">
+      <input type="checkbox" id="toggle-btn" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="stats-box">
+    <div>Total Blocked Items:</div>
+    <div class="stats-count" id="blocked-count">0</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
